@@ -1,0 +1,366 @@
+/* =====================================================================
+   URBAN VIBE - Hoja de estilos (2.ª entrega)
+   Secciones marcadas para ubicar fácilmente cada capturas de la rúbrica:
+   1. FUENTES   2. ÍCONOS   3. FLEXBOX   4. GRID   5. TRANSICIONES
+   6. TRANSFORMACIONES   7. ANIMACIONES (@keyframes)   8. RESPONSIVE
+   ===================================================================== */
+
+/* ---------- 1. FUENTES ------------------------------------------------
+   Las fuentes se cargan desde Google Fonts con <link> en el <head> de
+   cada página (Anton para títulos, Manrope para textos).              */
+:root {
+    --tinta: #141414;
+    --concreto: #ebe8e1;
+    --papel: #ffffff;
+    --oro: #f2b84b;
+    --cielo: #8ecdf2;
+    --gris: #55554f;
+    --linea: #d3cfc5;
+    --fuente-titulo: "Anton", "Impact", sans-serif;
+    --fuente-texto: "Manrope", "Segoe UI", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    color: var(--tinta);
+    background: var(--concreto);
+    font-family: var(--fuente-texto);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin: 0 0 .5rem;
+    font-family: var(--fuente-titulo);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: .01em;
+}
+h1 { font-size: clamp(3rem, 9vw, 6.5rem); text-transform: uppercase; }
+h2 { font-size: clamp(2rem, 4.5vw, 3rem); }
+h3 { font-size: 1.5rem; }
+
+p { margin: 0 0 1rem; max-width: 62ch; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+:focus-visible { outline: 3px solid var(--cielo); outline-offset: 3px; }
+
+.contenedor { width: min(1140px, 92%); margin: 0 auto; }
+.seccion { padding: 4.5rem 0; }
+.seccion-oscura { background: var(--tinta); color: var(--papel); }
+.seccion-oscura p { color: #d8d6cf; }
+
+/* ---------- 3. FLEXBOX: encabezado y menú ----------------------------- */
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--tinta);
+    color: var(--papel);
+}
+
+/* Flexbox */
+.barra {
+    display: flex;                      
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 68px;
+}
+.logo {
+    font-family: var(--fuente-titulo);
+    font-size: 1.9rem;
+    text-decoration: none;
+    letter-spacing: .02em;
+}
+.logo span { color: var(--oro); }
+
+.menu { display: flex; gap: .25rem; list-style: none; margin: 0; padding: 0; }
+.menu a {
+    display: block;
+    padding: .55rem .9rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+    transition: color .3s ease, border-color .3s ease;   /* 5. TRANSICIÓN */
+}
+.menu a:hover,
+.menu a[aria-current="page"] { color: var(--oro); border-color: var(--oro); }
+
+.menu-check { display: none; }
+.menu-boton { display: none; font-size: 1.5rem; cursor: pointer; padding: .4rem .6rem; }
+
+/* ---------- Botones --------------------------------------------------- */
+.boton {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .85rem 1.6rem;
+    border: 2px solid var(--tinta);
+    background: var(--oro);
+    color: var(--tinta);
+    font: 700 1rem var(--fuente-texto);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease; /* 5 */
+}
+.boton:hover {
+    background: var(--cielo);
+    transform: translate(-3px, -3px);                    /* 6. TRANSFORMACIÓN */
+    box-shadow: 5px 5px 0 var(--tinta);
+}
+.boton-claro { background: transparent; color: var(--papel); border-color: var(--papel); }
+.boton-claro:hover { color: var(--tinta); }
+
+/* ---------- 3. FLEXBOX: portada (texto + carrusel) -------------------- */
+.portada { padding: 4rem 0 5rem; }
+.portada-grid {
+    display: flex;                      /* Flexbox */
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+.portada-texto { flex: 1 1 420px; }
+.portada-texto p { font-size: 1.15rem; margin-bottom: 1.8rem; }
+.portada-acciones { display: flex; flex-wrap: wrap; gap: 1rem; }
+.portada-texto h1 em { font-style: normal; color: var(--gris); }
+
+/* Carrusel de imágenes */
+.carrusel {
+    flex: 0 1 440px;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--papel);
+    border: 2px solid var(--tinta);
+    box-shadow: 10px 10px 0 var(--oro);
+}
+
+/*ANIMACIÓN */
+.carrusel-pista {
+    display: flex;
+    height: 100%;
+    animation: deslizar 14s ease-in-out infinite;        
+}
+.diapositiva { position: relative; flex: 0 0 100%; height: 100%; }
+.diapositiva img { width: 100%; height: 100%; object-fit: contain; padding: 1rem; }
+.diapositiva .etiqueta { position: absolute; left: 1rem; bottom: 1rem; }
+
+/* Etiqueta inclinada (transformación skew) */
+.etiqueta {
+    display: inline-block;
+    padding: .25rem .9rem;
+    background: var(--tinta);
+    color: var(--oro);
+    font-weight: 800;
+    transform: skew(-10deg);                             /* 6. TRANSFORMACIÓN */
+}
+
+/* ---------- 7. ANIMACIONES: carrusel ---------------------------------- */
+@keyframes deslizar {
+    0%, 22%   { transform: translateX(0); }
+    28%, 47%  { transform: translateX(-100%); }
+    53%, 72%  { transform: translateX(-200%); }
+    78%, 100% { transform: translateX(-300%); }
+}
+
+
+/* ---------- 4. GRID: categorías --------------------------------------- */
+.titulo-seccion { margin-bottom: 2.2rem; }
+.rejilla-3 {
+    display: grid;                                       /* Grid Layout */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+.categoria {
+    padding: 2rem;
+    background: var(--papel);
+    border: 2px solid var(--tinta);
+    text-decoration: none;
+    transition: transform .3s ease, background-color .3s ease;   /* 5 */
+}
+.categoria i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform .5s ease;                      /* 5 */
+}
+.categoria:hover { background: var(--oro); transform: translateY(-6px); }  /* 6 */
+.categoria:hover i { transform: rotate(360deg) scale(1.15); }              /* 6 */
+.categoria p { margin: 0; color: var(--gris); }
+.categoria:hover p { color: var(--tinta); }
+
+/* ---------- 3. FLEXBOX: misión y visión ------------------------------- */
+.mision-vision { display: flex; flex-wrap: wrap; gap: 2rem; }
+.mision-vision > div { flex: 1 1 320px; padding-left: 1.4rem; border-left: 6px solid var(--oro); }
+
+/* ---------- 4. GRID: productos --------------------------------------- */
+/* Grid Layout */
+.rejilla-productos {
+    display: grid;                                       
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.75rem;
+}
+.producto {
+    display: flex;
+    flex-direction: column;
+    background: var(--papel);
+    border: 2px solid var(--tinta);
+}
+.producto figure { position: relative; margin: 0; overflow: hidden; background: #f6f5f1; aspect-ratio: 1 / 1; }
+.producto img {
+    width: 100%; height: 100%; object-fit: contain; padding: 1rem;
+    transition: transform .5s ease;                      /* 5 */
+}
+.producto:hover img { transform: scale(1.1) rotate(-2deg); }               /* 6 */
+.producto figure .etiqueta { position: absolute; top: 1rem; left: 1rem; }
+.producto-info { display: flex; flex-direction: column; gap: .35rem; padding: 1.25rem; flex: 1; }
+.producto-info h3 { margin: 0; }
+.producto-info p { margin: 0; color: var(--gris); font-size: .95rem; }
+.precio { margin-top: auto !important; padding-top: .6rem; font-size: 1.5rem !important; font-weight: 800; color: var(--tinta) !important; }
+.producto .boton { margin: 0 1.25rem 1.25rem; justify-content: center; }
+
+/* ---------- Tablas ---------------------------------------------------- */
+.tabla-caja { overflow-x: auto; border: 2px solid var(--tinta); background: var(--papel); }
+table { width: 100%; border-collapse: collapse; min-width: 520px; }
+caption { padding: 1rem 1.25rem; text-align: left; font-family: var(--fuente-titulo); font-size: 1.4rem; background: var(--oro); border-bottom: 2px solid var(--tinta); }
+th, td { padding: .85rem 1.25rem; text-align: left; border-bottom: 1px solid var(--linea); }
+thead th { background: var(--tinta); color: var(--papel); font-weight: 700; }
+tbody tr { transition: background-color .25s ease; }                       /* 5 */
+tbody tr:hover { background: #f4ecd9; }
+tbody tr:last-child td { border-bottom: 0; }
+.nota-tabla { margin-top: .8rem; font-size: .9rem; color: var(--gris); }
+
+/* ---------- Encabezado de páginas internas ---------------------------- */
+.cabecera-pagina { padding: 3.5rem 0 1rem; }
+.cabecera-pagina p { font-size: 1.15rem; }
+.migas { display: flex; gap: .6rem; margin-bottom: 1rem; font-size: .95rem; color: var(--gris); }
+.migas a { text-decoration: none; font-weight: 600; }
+.migas a:hover { text-decoration: underline; }
+
+/* Bloque de detalle (flex): imagen grande + texto */
+.detalle { display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; }
+.detalle > * { flex: 1 1 320px; }
+.detalle figure { margin: 0; background: var(--papel); border: 2px solid var(--tinta); box-shadow: 10px 10px 0 var(--cielo); padding: 1rem; }
+.lista-iconos { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: .8rem; }
+.lista-iconos li { display: flex; gap: .8rem; align-items: baseline; }
+.lista-iconos i { color: var(--oro); width: 1.2rem; text-align: center; }
+
+/* ---------- Formulario ------------------------------------------------ */
+/* Grid Layout */
+.formulario {
+    display: grid;                                       
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    padding: 2rem;
+    background: var(--papel);
+    color: var(--tinta);
+    border: 2px solid var(--tinta);
+    box-shadow: 10px 10px 0 var(--oro);
+}
+.campo { display: flex; flex-direction: column; gap: .4rem; }
+.campo-ancho { grid-column: 1 / -1; }
+.campo label { font-weight: 700; }
+.campo input, .campo select, .campo textarea {
+    padding: .8rem 1rem;
+    border: 2px solid var(--linea);
+    background: #fafaf8;
+    font: 400 1rem var(--fuente-texto);
+    transition: border-color .25s ease, box-shadow .25s ease;                /* 5 */
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    outline: none;
+    border-color: var(--tinta);
+    box-shadow: 4px 4px 0 var(--oro);
+}
+.campo textarea { min-height: 130px; resize: vertical; }
+.campo-check { flex-direction: row; align-items: center; gap: .6rem; }
+.campo-check input { width: 1.2rem; height: 1.2rem; accent-color: var(--tinta); }
+.campo-check label { font-weight: 400; }
+.contacto-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 3rem; align-items: start; }
+.datos-contacto { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: .9rem; }
+.datos-contacto i { color: var(--oro); width: 1.5rem; }
+
+/* ---------- 2. ÍCONOS (Font Awesome) y pie de página ------------------ */
+.pie { background: var(--tinta); color: var(--papel); padding: 3rem 0 1.5rem; }
+.pie-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+.pie-grid > div { flex: 1 1 220px; }
+.pie h3 { font-size: 1.3rem; }
+.pie ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.pie a { text-decoration: none; }
+.pie a:hover { color: var(--oro); }
+.redes { display: flex; gap: .75rem; margin-top: .5rem; }
+.redes a {
+    display: grid; place-items: center;
+    width: 46px; height: 46px;
+    border: 2px solid var(--papel);
+    border-radius: 50%;
+    font-size: 1.3rem;
+    transition: transform .4s ease, background-color .3s ease, color .3s ease;   /* 5 */
+}
+.redes a:hover { transform: rotate(360deg) scale(1.15); background: var(--oro); color: var(--tinta); border-color: var(--oro); }   /* 6 */
+.derechos { margin: 2rem 0 0; padding-top: 1.2rem; border-top: 1px solid #3a3a37; font-size: .9rem; color: #bdbab1; max-width: none; }
+
+
+/* ---------- Filtro de categorías (chips) y bloques de catálogo -------- */
+.filtros { position: sticky; top: 68px; z-index: 40; background: var(--concreto); border-block: 2px solid var(--tinta); }
+.filtros-lista { display: flex; flex-wrap: wrap; gap: .6rem; padding: .9rem 0; }          /* Flexbox */
+.chip {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .55rem 1.1rem;
+    border: 2px solid var(--tinta);
+    background: var(--papel);
+    color: var(--tinta);
+    font: 700 .95rem var(--fuente-texto);
+    cursor: pointer;
+    transition: background-color .25s ease, transform .25s ease, box-shadow .25s ease;   /* 5. TRANSICIÓN */
+}
+
+/* 6. TRANSFORMACIÓN */
+.chip:hover { background: var(--cielo); transform: translateY(-2px); }                  
+.chip.activo { background: var(--tinta); color: var(--oro); box-shadow: 4px 4px 0 var(--oro); }
+.catalogo { padding-top: 1rem; }
+.categoria-bloque { padding: 3rem 0 1rem; animation: aparecer .5s ease both; }            /* 7. ANIMACIÓN */
+.categoria-bloque[hidden] { display: none; }
+.categoria-bloque h2 { display: flex; align-items: center; gap: .8rem; }
+.categoria-bloque h2 i { color: var(--oro); -webkit-text-stroke: 1px var(--tinta); }
+.categoria-bloque > .contenedor > p { color: var(--gris); margin-bottom: 1.8rem; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ---------- 8. RESPONSIVE (media queries) ----------------------------- */
+@media (max-width: 900px) {
+    .rejilla-3 { grid-template-columns: 1fr; }
+    .contacto-grid { grid-template-columns: 1fr; }
+    .portada-grid { flex-direction: column; align-items: stretch; }
+    .carrusel { align-self: center; max-width: 440px; }
+}
+
+@media (max-width: 760px) {
+    .menu-boton { display: block; }
+    .menu {
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--tinta);
+        border-top: 1px solid #3a3a37;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .4s ease;                                     /* 5 */
+    }
+    .menu a { padding: 1rem 4%; border-bottom: 1px solid #2c2c2a; border-left: 0; }
+    .menu-check:checked ~ nav .menu { max-height: 340px; }
+    .seccion { padding: 3rem 0; }
+    .filtros { position: static; }
+    .formulario { grid-template-columns: 1fr; padding: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .carrusel-pista { transform: none; }
+}

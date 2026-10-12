@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gorras y complementos urbanos de Urban Vibe.">
+    <title>Accesorios | Urban Vibe</title>
+
+    <!-- FUENTES: Google Fonts (Anton para títulos, Manrope para textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ÍCONOS: Font Awesome desde cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Hoja de estilos propia -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor barra">
+            <a href="index.html" class="logo">Urban<span>Vibe</span></a>
+            <!-- Menú móvil sin JavaScript: checkbox + label -->
+            <input type="checkbox" id="menu-check" class="menu-check">
+            <label for="menu-check" class="menu-boton" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></label>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ropa-urbana.html">Ropa urbana</a></li>
+                    <li><a href="accesorios.html" aria-current="page">Accesorios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cabecera-pagina">
+            <div class="contenedor">
+                <nav class="migas" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><span>Accesorios</span></nav>
+                <h1>Accesorios</h1>
+                <p>Complementos para tu outfit. Elige una categoría para ver sus modelos.</p>
+            </div>
+        </section>
+
+        <div class="filtros">
+            <div class="contenedor filtros-lista" role="group" aria-label="Filtrar por categoría">
+                <button type="button" class="chip activo" data-filtro="todas" aria-pressed="true">Todos los accesorios</button>
+                <button type="button" class="chip" data-filtro="gorras" aria-pressed="false"><i class="fa-solid fa-baseball"></i> Gorras</button>
+                <button type="button" class="chip" data-filtro="mochilas" aria-pressed="false"><i class="fa-solid fa-bag-shopping"></i> Mochilas</button>
+                <button type="button" class="chip" data-filtro="lentes" aria-pressed="false"><i class="fa-solid fa-glasses"></i> Lentes</button>
+            </div>
+        </div>
+
+        <div class="catalogo">
+            <section class="categoria-bloque" id="gorras" data-categoria="gorras">
+                <div class="contenedor">
+                    <h2><i class="fa-solid fa-baseball"></i> Gorras</h2>
+                    <p>Visera curva y ajuste regulable.</p>
+                    <div class="rejilla-productos">
+                        <article class="producto">
+                            <figure><img src="imagenes/Gorra.jpeg" alt="Gorra urbana" loading="lazy"><span class="etiqueta">Más pedida</span></figure>
+                            <div class="producto-info">
+                                <h3>Gorra urbana</h3>
+                                <p>Azul con bordados detallados.</p>
+                                <p class="precio">S/ 39.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/gorra-camel.jpg" alt="Gorra Camel" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Gorra Camel</h3>
+                                <p>Visera curva en tono camel con logo bordado.</p>
+                                <p class="precio">S/ 34.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/gorra-azul-marino.jpg" alt="Gorra Azul Marino" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
+                            <div class="producto-info">
+                                <h3>Gorra Azul Marino</h3>
+                                <p>Azul marino con panel de malla.</p>
+                                <p class="precio">S/ 34.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/gorra-blanca.jpg" alt="Gorra Blanca" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Gorra Blanca</h3>
+                                <p>Blanca con detalle negro en la visera.</p>
+                                <p class="precio">S/ 36.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="categoria-bloque" id="mochilas" data-categoria="mochilas">
+                <div class="contenedor">
+                    <h2><i class="fa-solid fa-bag-shopping"></i> Mochilas</h2>
+                    <p>Espacio para el día entero.</p>
+                    <div class="rejilla-productos">
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/mochila-negra-clasica.jpg" alt="Mochila Negra Clásica" loading="lazy"><span class="etiqueta">Más pedida</span></figure>
+                            <div class="producto-info">
+                                <h3>Mochila Negra Clásica</h3>
+                                <p>Aspecto de cuero con correas y hebillas.</p>
+                                <p class="precio">S/ 109.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/mochila-negra-lima.jpg" alt="Mochila Negra Lima" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Mochila Negra Lima</h3>
+                                <p>Deportiva, con cierres verde lima y bolsillo lateral.</p>
+                                <p class="precio">S/ 94.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/mochila-durazno.jpg" alt="Mochila Durazno" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
+                            <div class="producto-info">
+                                <h3>Mochila Durazno</h3>
+                                <p>Acolchada, ligera y con bolsillo frontal.</p>
+                                <p class="precio">S/ 104.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/mochila-verde-oliva.jpg" alt="Mochila Verde Oliva" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Mochila Verde Oliva</h3>
+                                <p>Varios compartimentos para el día entero.</p>
+                                <p class="precio">S/ 99.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="categoria-bloque" id="lentes" data-categoria="lentes">
+                <div class="contenedor">
+                    <h2><i class="fa-solid fa-glasses"></i> Lentes</h2>
+                    <p>Protección y actitud bajo el sol.</p>
+                    <div class="rejilla-productos">
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/lentes-clasicos-negros.jpg" alt="Lentes Clásicos Negros" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Lentes Clásicos Negros</h3>
+                                <p>Montura gruesa y lente oscuro.</p>
+                                <p class="precio">S/ 34.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/lentes-aviador-negros.jpg" alt="Lentes Aviador Negros" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
+                            <div class="producto-info">
+                                <h3>Lentes Aviador Negros</h3>
+                                <p>Montura cuadrada con doble puente.</p>
+                                <p class="precio">S/ 39.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/lentes-aviador-amarillos.jpg" alt="Lentes Aviador Amarillos" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Lentes Aviador Amarillos</h3>
+                                <p>El mismo diseño con lente amarillo.</p>
+                                <p class="precio">S/ 36.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/lentes-carey-verdes.jpg" alt="Lentes Carey Verdes" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Lentes Carey Verdes</h3>
+                                <p>Montura carey con lente verde.</p>
+                                <p class="precio">S/ 29.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="seccion seccion-oscura">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Precios de un vistazo</h2>
+                <div class="tabla-caja" style="color:var(--tinta)">
+                    <table>
+                        <caption>Accesorios Urban Vibe por categoría</caption>
+                        <thead><tr><th scope="col">Categoría</th><th scope="col">Modelos</th><th scope="col">Desde</th><th scope="col">Hasta</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Gorras</th><td>4</td><td>S/ 34.90</td><td>S/ 39.90</td></tr>
+                            <tr><th scope="row">Mochilas</th><td>4</td><td>S/ 94.90</td><td>S/ 109.90</td></tr>
+                            <tr><th scope="row">Lentes</th><td>4</td><td>S/ 29.90</td><td>S/ 39.90</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="pie-grid">
+                <div>
+                    <h3>Urban<span style="color:var(--oro)">Vibe</span></h3>
+                    <p>Ropa y accesorios urbanos para expresar tu propio estilo.</p>
+                </div>
+                <div>
+                    <h3>Navega</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="ropa-urbana.html">Ropa urbana</a></li>
+                        <li><a href="accesorios.html">Accesorios</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Síguenos</h3>
+                    <!-- ÍCONOS dentro de enlaces (Font Awesome) -->
+                    <div class="redes">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="derechos">&copy; 2026 Urban Vibe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* Filtro de categorías: muestra solo la categoría elegida (sin recargar la página) */
+        (function () {
+            var botones = document.querySelectorAll('.chip');
+            var bloques = document.querySelectorAll('.categoria-bloque');
+            function filtrar(cual) {
+                var existe = cual === 'todas' || document.getElementById(cual);
+                if (!existe) { cual = 'todas'; }
+                bloques.forEach(function (b) { b.hidden = !(cual === 'todas' || b.dataset.categoria === cual); });
+                botones.forEach(function (c) {
+                    var on = c.dataset.filtro === cual;
+                    c.classList.toggle('activo', on);
+                    c.setAttribute('aria-pressed', on);
+                });
+            }
+            botones.forEach(function (c) {
+                c.addEventListener('click', function () {
+                    filtrar(c.dataset.filtro);
+                    history.replaceState(null, '', c.dataset.filtro === 'todas' ? location.pathname : '#' + c.dataset.filtro);
+                });
+            });
+            filtrar(location.hash.replace('#', '') || 'todas');
+            window.addEventListener('hashchange', function () { filtrar(location.hash.replace('#', '') || 'todas'); });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Urban Vibe: ropa y accesorios urbanos cómodos y modernos.">
+    <title>Urban Vibe | Ropa urbana</title>
+
+    <!-- FUENTES: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ÍCONOS: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor barra">
+            <a href="index.html" class="logo">Urban<span>Vibe</span></a>
+            <!-- Menú móvil sin JavaScript: checkbox + label -->
+            <input type="checkbox" id="menu-check" class="menu-check">
+            <label for="menu-check" class="menu-boton" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></label>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html" aria-current="page">Inicio</a></li>
+                    <li><a href="ropa-urbana.html">Ropa urbana</a></li>
+                    <li><a href="accesorios.html">Accesorios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- PORTADA: Flexbox + carrusel animado -->
+        <section class="portada">
+            <div class="contenedor portada-grid">
+                <div class="portada-texto">
+                    <h1>Viste tu <em>propio</em> ritmo</h1>
+                    <p>Camisetas, poleras y accesorios urbanos pensados para la comodidad de todos los días y para que tu estilo se note.</p>
+                    <div class="portada-acciones">
+                        <a href="ropa-urbana.html" class="boton"><i class="fa-solid fa-shirt"></i> Ver ropa urbana</a>
+                        <a href="#contacto" class="boton boton-claro" style="color:var(--tinta);border-color:var(--tinta)"><i class="fa-regular fa-envelope"></i> Escríbenos</a>
+                    </div>
+                </div>
+
+                <div class="carrusel" role="img" aria-label="Carrusel con camiseta, polera y gorra de Urban Vibe">
+                    <div class="carrusel-pista">
+                        <div class="diapositiva"><img src="imagenes/Camiseta.jpeg" alt="Camiseta básica negra"><span class="etiqueta">Camiseta básica</span></div>
+                        <div class="diapositiva"><img src="imagenes/Polera.jpeg" alt="Polera oversize negra"><span class="etiqueta">Polera oversize</span></div>
+                        <div class="diapositiva"><img src="imagenes/Gorra.jpeg" alt="Gorra urbana azul"><span class="etiqueta">Gorra urbana</span></div>
+                        <!-- Repetimos la primera para que el bucle no se note -->
+                        <div class="diapositiva" aria-hidden="true"><img src="imagenes/Camiseta.jpeg" alt=""><span class="etiqueta">Camiseta básica</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍAS: Grid de 3 columnas -->
+        <section class="seccion">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Elige por categoría</h2>
+                <div class="rejilla-3">
+                    <a href="ropa-urbana.html#camisetas" class="categoria">
+                        <i class="fa-solid fa-shirt"></i>
+                        <h3>Camisetas</h3>
+                        <p>Básicas y de estampado, para todos los días.</p>
+                    </a>
+                    <a href="ropa-urbana.html#poleras" class="categoria">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <h3>Poleras</h3>
+                        <p>Capuchas y cierres para las noches frescas.</p>
+                    </a>
+                    <a href="ropa-urbana.html#pantalones" class="categoria">
+                        <i class="fa-solid fa-person-walking"></i>
+                        <h3>Pantalones</h3>
+                        <p>Joggers y jeans para todos los días.</p>
+                    </a>
+                    <a href="accesorios.html#gorras" class="categoria">
+                        <i class="fa-solid fa-baseball"></i>
+                        <h3>Gorras</h3>
+                        <p>Visera curva y ajuste regulable.</p>
+                    </a>
+                    <a href="accesorios.html#mochilas" class="categoria">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <h3>Mochilas</h3>
+                        <p>Espacio para el día entero.</p>
+                    </a>
+                    <a href="accesorios.html#lentes" class="categoria">
+                        <i class="fa-solid fa-glasses"></i>
+                        <h3>Lentes</h3>
+                        <p>Protección y actitud bajo el sol.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTOS DESTACADOS: Grid auto-fit -->
+        <section class="seccion seccion-oscura">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Productos destacados</h2>
+                <div class="rejilla-productos">
+                    <article class="producto" style="color:var(--tinta)">
+                        <figure><img src="imagenes/Camiseta.jpeg" alt="Camiseta básica negra con estampado rojo"><span class="etiqueta">Básica</span></figure>
+                        <div class="producto-info">
+                            <h3>Camiseta básica</h3>
+                            <p>Algodón suave, corte relajado y estampado urbano.</p>
+                            <p class="precio">S/ 49.90</p>
+                        </div>
+                        <a href="#contacto" class="boton">Consultar</a>
+                    </article>
+                    <article class="producto" style="color:var(--tinta)">
+                        <figure><img src="imagenes/Polera.jpeg" alt="Polera oversize negra"><span class="etiqueta">Oversize</span></figure>
+                        <div class="producto-info">
+                            <h3>Polera oversize</h3>
+                            <p>Caída holgada para el día a día y las noches frías.</p>
+                            <p class="precio">S/ 89.90</p>
+                        </div>
+                        <a href="#contacto" class="boton">Consultar</a>
+                    </article>
+                    <article class="producto" style="color:var(--tinta)">
+                        <figure><img src="imagenes/Gorra.jpeg" alt="Gorra urbana azul con bordados"><span class="etiqueta">Accesorio</span></figure>
+                        <div class="producto-info">
+                            <h3>Gorra urbana</h3>
+                            <p>Visera curva, bordados y ajuste regulable.</p>
+                            <p class="precio">S/ 39.90</p>
+                        </div>
+                        <a href="#contacto" class="boton">Consultar</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISIÓN Y VISIÓN: Flexbox -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="mision-vision">
+                    <div>
+                        <h2>Misión</h2>
+                        <p>Ofrecer ropa y accesorios urbanos modernos, cómodos y accesibles, permitiendo que nuestros clientes expresen su personalidad y estilo.</p>
+                    </div>
+                    <div>
+                        <h2>Visión</h2>
+                        <p>Ser una marca reconocida en la moda urbana, destacándonos por nuestra calidad, estilo e innovación.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO: formulario -->
+        <section class="seccion seccion-oscura" id="contacto">
+            <div class="contenedor contacto-grid">
+                <div>
+                    <h2>Contáctanos</h2>
+                    <p>¿Tienes alguna consulta sobre tallas, precios o pedidos? Déjanos tus datos y nos pondremos en contacto contigo.</p>
+                    <ul class="datos-contacto">
+                        <li><i class="fa-solid fa-location-dot"></i> Lima, Perú</li>
+                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></li>
+                        <li><i class="fa-regular fa-envelope"></i> <a href="mailto:contacto@urbanvibe.com.pe">contacto@urbanvibe.com.pe</a></li>
+                    </ul>
+                </div>
+
+                <form class="formulario" action="#" method="post">
+                    <div class="campo">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    <div class="campo">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com" required>
+                    </div>
+                    <div class="campo">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu número de teléfono">
+                    </div>
+                    <div class="campo">
+                        <label for="asunto">Asunto</label>
+                        <select id="asunto" name="asunto" required>
+                            <option value="">Elige un motivo</option>
+                            <option>Consulta de tallas</option>
+                            <option>Información de un producto</option>
+                            <option>Estado de mi pedido</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                    <div class="campo campo-ancho">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+                    </div>
+                    <div class="campo campo-ancho campo-check">
+                        <input type="checkbox" id="novedades" name="novedades">
+                        <label for="novedades">Quiero recibir novedades de nuevas colecciones.</label>
+                    </div>
+                    <div class="campo-ancho">
+                        <button type="submit" class="boton"><i class="fa-solid fa-paper-plane"></i> Enviar mensaje</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="pie-grid">
+                <div>
+                    <h3>Urban<span style="color:var(--oro)">Vibe</span></h3>
+                    <p>Ropa y accesorios urbanos para expresar tu propio estilo.</p>
+                </div>
+                <div>
+                    <h3>Navega</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="ropa-urbana.html">Ropa urbana</a></li>
+                        <li><a href="accesorios.html">Accesorios</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Síguenos</h3>
+                    <!-- ÍCONOS dentro de enlaces (Font Awesome) -->
+                    <div class="redes">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="derechos">&copy; 2026 Urban Vibe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
