@@ -21,10 +21,11 @@
     <header class="encabezado">
         <div class="contenedor barra">
             <a href="index.html" class="logo">Urban<span>Vibe</span></a>
-            <!-- Menú móvil sin JavaScript: checkbox + label -->
-            <input type="checkbox" id="menu-check" class="menu-check">
-            <label for="menu-check" class="menu-boton" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></label>
-            <nav aria-label="Navegación principal">
+            <!-- Menú responsivo con JS (sesión 14) -->
+            <button type="button" class="menu-boton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="menu-principal" aria-label="Navegación principal">
                 <ul class="menu">
                     <li><a href="index.html" aria-current="page">Inicio</a></li>
                     <li><a href="ropa-urbana.html">Ropa urbana</a></li>
@@ -32,30 +33,72 @@
                     <li><a href="index.html#contacto">Contacto</a></li>
                 </ul>
             </nav>
+            <button type="button" class="btn-fav-header" id="fav-toggle" aria-label="Ver favoritos" title="Favoritos">
+                <i class="fa-regular fa-heart"></i>
+                <span id="fav-badge" hidden>0</span>
+            </button>
+            <button type="button" class="btn-carrito-header" id="btn-carrito" aria-label="Ver carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="carrito-badge" hidden>0</span>
+            </button>
         </div>
     </header>
 
     <main>
-        <!-- PORTADA: Flexbox + carrusel animado -->
+        <!-- PORTADA -->
         <section class="portada">
             <div class="contenedor portada-grid">
                 <div class="portada-texto">
-                    <h1>Viste tu <em>propio</em> ritmo</h1>
-                    <p>Camisetas, poleras y accesorios urbanos pensados para la comodidad de todos los días y para que tu estilo se note.</p>
+                    <p class="portada-badge"><i class="fa-solid fa-bolt"></i> Drop urbano · Solo para él</p>
+                    <h1>Viste tu <em id="frase-rotativa">propio ritmo</em></h1>
+                    <p>Ropa y accesorios pensados para moverte por la ciudad con estilo propio. Sin ruido innecesario: prendas que se sienten bien y se ven mejor.</p>
                     <div class="portada-acciones">
-                        <a href="ropa-urbana.html" class="boton"><i class="fa-solid fa-shirt"></i> Ver ropa urbana</a>
-                        <a href="#contacto" class="boton boton-claro" style="color:var(--tinta);border-color:var(--tinta)"><i class="fa-regular fa-envelope"></i> Escríbenos</a>
+                        <a href="ropa-urbana.html" class="boton"><i class="fa-solid fa-shirt"></i> Ver ropa</a>
+                        <a href="#arma-vibe" class="boton boton-claro" style="color:var(--tinta);border-color:var(--tinta)"><i class="fa-solid fa-wand-magic-sparkles"></i> Arma tu vibe</a>
                     </div>
                 </div>
-
-                <div class="carrusel" role="img" aria-label="Carrusel con camiseta, polera y gorra de Urban Vibe">
+                <div class="carrusel" role="img" aria-label="Carrusel de productos Urban Vibe">
                     <div class="carrusel-pista">
-                        <div class="diapositiva"><img src="imagenes/Camiseta.jpeg" alt="Camiseta básica negra"><span class="etiqueta">Camiseta básica</span></div>
-                        <div class="diapositiva"><img src="imagenes/Polera.jpeg" alt="Polera oversize negra"><span class="etiqueta">Polera oversize</span></div>
-                        <div class="diapositiva"><img src="imagenes/Gorra.jpeg" alt="Gorra urbana azul"><span class="etiqueta">Gorra urbana</span></div>
-                        <!-- Repetimos la primera para que el bucle no se note -->
-                        <div class="diapositiva" aria-hidden="true"><img src="imagenes/Camiseta.jpeg" alt=""><span class="etiqueta">Camiseta básica</span></div>
+                        <div class="diapositiva"><img src="imagenes/Camiseta.jpeg" alt="Camiseta Limitless"><span class="etiqueta">Limitless Club</span></div>
+                        <div class="diapositiva"><img src="imagenes/Polera.jpeg" alt="Polera Essentials"><span class="etiqueta">Essentials</span></div>
+                        <div class="diapositiva"><img src="imagenes/Gorra.jpeg" alt="Gorra urbana"><span class="etiqueta">Gorra urbana</span></div>
+                        <div class="diapositiva" aria-hidden="true"><img src="imagenes/Camiseta.jpeg" alt=""><span class="etiqueta">Limitless Club</span></div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARMA TU VIBE — outfit builder -->
+        <section class="seccion seccion-oscura" id="arma-vibe">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Arma tu vibe</h2>
+                <p class="vibe-intro">Elige una pieza de cada grupo y arma un look en segundos. Luego agrégalo al carrito.</p>
+                <div class="vibe-builder">
+                    <div class="vibe-slot">
+                        <label for="vibe-arriba">Arriba</label>
+                        <select id="vibe-arriba"></select>
+                        <label for="talla-arriba">Talla</label>
+                        <select id="talla-arriba" disabled><option>Elige primero una pieza</option></select>
+                        <div class="vibe-preview" id="prev-arriba"><span>¿Camiseta o polera?</span></div>
+                    </div>
+                    <div class="vibe-slot">
+                        <label for="vibe-abajo">Abajo</label>
+                        <select id="vibe-abajo"></select>
+                        <label for="talla-abajo">Talla</label>
+                        <select id="talla-abajo" disabled><option>Elige primero una pieza</option></select>
+                        <div class="vibe-preview" id="prev-abajo"><span>¿Pantalón?</span></div>
+                    </div>
+                    <div class="vibe-slot">
+                        <label for="vibe-extra">Extra</label>
+                        <select id="vibe-extra"></select>
+                        <label for="talla-extra">Talla</label>
+                        <select id="talla-extra" disabled><option>Elige primero una pieza</option></select>
+                        <div class="vibe-preview" id="prev-extra"><span>¿Gorra, mochila o lentes?</span></div>
+                    </div>
+                </div>
+                <div class="vibe-resultado">
+                    <p>Total del look: <strong id="vibe-total">S/ 0.00</strong></p>
+                    <button type="button" class="boton" id="vibe-agregar"><i class="fa-solid fa-cart-plus"></i> Agregar look al carrito</button>
                 </div>
             </div>
         </section>
@@ -105,18 +148,18 @@
                 <h2 class="titulo-seccion">Productos destacados</h2>
                 <div class="rejilla-productos">
                     <article class="producto" style="color:var(--tinta)">
-                        <figure><img src="imagenes/Camiseta.jpeg" alt="Camiseta básica negra con estampado rojo"><span class="etiqueta">Básica</span></figure>
+                        <figure><img src="imagenes/Camiseta.jpeg" alt="Camiseta Limitless Club"><span class="etiqueta">Básica</span></figure>
                         <div class="producto-info">
-                            <h3>Camiseta básica</h3>
-                            <p>Algodón suave, corte relajado y estampado urbano.</p>
+                            <h3>Camiseta Limitless Club</h3>
+                            <p>Negra oversize con bandas Limitless Culture Club.</p>
                             <p class="precio">S/ 49.90</p>
                         </div>
                         <a href="#contacto" class="boton">Consultar</a>
                     </article>
                     <article class="producto" style="color:var(--tinta)">
-                        <figure><img src="imagenes/Polera.jpeg" alt="Polera oversize negra"><span class="etiqueta">Oversize</span></figure>
+                        <figure><img src="imagenes/Polera.jpeg" alt="Polera Essentials negra"><span class="etiqueta">Oversize</span></figure>
                         <div class="producto-info">
-                            <h3>Polera oversize</h3>
+                            <h3>Polera Essentials</h3>
                             <p>Caída holgada para el día a día y las noches frías.</p>
                             <p class="precio">S/ 89.90</p>
                         </div>
@@ -232,5 +275,65 @@
             <p class="derechos">&copy; 2026 Urban Vibe. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Modal producto -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="modal" id="modal">
+            <button type="button" class="modal-cerrar" id="modal-cerrar" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-cuerpo">
+                <img id="modal-img" src="" alt="">
+                <div class="modal-info">
+                    <h2 id="modal-titulo">Producto</h2>
+                    <p id="modal-desc"></p>
+                    <p class="precio" id="modal-precio"></p>
+                    <p style="font-size:.8rem;font-weight:700;margin:0 0 .3rem">Elige talla:</p>
+                    <div class="modal-tallas" id="modal-tallas"></div>
+                    <div class="modal-acciones">
+                        <button type="button" class="boton" id="modal-agregar"><i class="fa-solid fa-cart-plus"></i> Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Favoritos drawer -->
+    <div class="fav-overlay" id="fav-overlay"></div>
+    <aside class="fav-drawer" id="fav-drawer" aria-label="Tus favoritos">
+        <div class="fav-header">
+            <h2><i class="fa-solid fa-heart"></i> Tus favoritos</h2>
+            <button type="button" class="fav-cerrar" id="fav-cerrar" aria-label="Cerrar favoritos"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="fav-body">
+            <p class="fav-vacio" id="fav-vacio">Aún no tienes favoritos.<br>Toca el corazón en un producto para guardarlo.</p>
+            <ul class="fav-lista" id="fav-lista"></ul>
+        </div>
+        <div class="fav-footer">
+            <button type="button" class="boton boton-oscuro" id="fav-vaciar">Vaciar favoritos</button>
+        </div>
+    </aside>
+
+    <!-- Carrito drawer -->
+    <div class="carrito-overlay" id="carrito-overlay"></div>
+    <aside class="carrito-drawer" id="carrito-drawer" aria-label="Carrito de compras">
+        <div class="carrito-header">
+            <h2><i class="fa-solid fa-cart-shopping"></i> Tu carrito</h2>
+            <button type="button" class="carrito-cerrar" id="carrito-cerrar" aria-label="Cerrar carrito"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="carrito-body">
+            <p class="carrito-vacio" id="carrito-vacio">Tu carrito está vacío.</p>
+            <ul class="carrito-lista" id="carrito-lista"></ul>
+        </div>
+        <div class="carrito-footer">
+            <div class="carrito-total"><span>Total</span><span id="carrito-total">S/ 0.00</span></div>
+            <div class="carrito-footer-acciones">
+                <button type="button" class="boton boton-oscuro" id="carrito-vaciar">Vaciar</button>
+                <button type="button" class="boton" id="carrito-comprar"><i class="fa-solid fa-check"></i> Comprar</button>
+            </div>
+        </div>
+    </aside>
+
+    <script src="js/productos.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

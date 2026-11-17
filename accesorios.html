@@ -3,28 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gorras y complementos urbanos de Urban Vibe.">
+    <meta name="description" content="Gorras, mochilas y lentes urbanos de Urban Vibe.">
     <title>Accesorios | Urban Vibe</title>
-
-    <!-- FUENTES: Google Fonts (Anton para títulos, Manrope para textos) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- ÍCONOS: Font Awesome desde cdnjs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    <!-- Hoja de estilos propia -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header class="encabezado">
         <div class="contenedor barra">
             <a href="index.html" class="logo">Urban<span>Vibe</span></a>
-            <!-- Menú móvil sin JavaScript: checkbox + label -->
-            <input type="checkbox" id="menu-check" class="menu-check">
-            <label for="menu-check" class="menu-boton" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></label>
-            <nav aria-label="Navegación principal">
+            <button type="button" class="menu-boton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="menu-principal" aria-label="Navegación principal">
                 <ul class="menu">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="ropa-urbana.html">Ropa urbana</a></li>
@@ -32,6 +26,14 @@
                     <li><a href="index.html#contacto">Contacto</a></li>
                 </ul>
             </nav>
+            <button type="button" class="btn-fav-header" id="fav-toggle" aria-label="Ver favoritos" title="Favoritos">
+                <i class="fa-regular fa-heart"></i>
+                <span id="fav-badge" hidden>0</span>
+            </button>
+            <button type="button" class="btn-carrito-header" id="btn-carrito" aria-label="Ver carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="carrito-badge" hidden>0</span>
+            </button>
         </div>
     </header>
 
@@ -40,172 +42,80 @@
             <div class="contenedor">
                 <nav class="migas" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><span>Accesorios</span></nav>
                 <h1>Accesorios</h1>
-                <p>Complementos para tu outfit. Elige una categoría para ver sus modelos.</p>
+                <p>Gorras, mochilas y lentes para completar tu look. Filtra por categoría, color o precio.</p>
             </div>
         </section>
 
-        <div class="filtros">
-            <div class="contenedor filtros-lista" role="group" aria-label="Filtrar por categoría">
-                <button type="button" class="chip activo" data-filtro="todas" aria-pressed="true">Todos los accesorios</button>
-                <button type="button" class="chip" data-filtro="gorras" aria-pressed="false"><i class="fa-solid fa-baseball"></i> Gorras</button>
-                <button type="button" class="chip" data-filtro="mochilas" aria-pressed="false"><i class="fa-solid fa-bag-shopping"></i> Mochilas</button>
-                <button type="button" class="chip" data-filtro="lentes" aria-pressed="false"><i class="fa-solid fa-glasses"></i> Lentes</button>
+        <div class="tienda-layout">
+            <aside class="filtros-panel" id="filtros-panel">
+                <div class="filtros-panel-header">
+                    <h2><i class="fa-solid fa-sliders"></i> Filtros</h2>
+                    <button type="button" class="btn-limpiar" id="limpiar-filtros">Limpiar todo</button>
+                </div>
+
+                <div class="filtro-bloque">
+                    <h3>Categoría</h3>
+                    <div class="chips-wrap" role="group" aria-label="Categoría">
+                        <button type="button" class="chip activo" data-filtro="todas" aria-pressed="true">Todas</button>
+                        <button type="button" class="chip" data-filtro="gorras" aria-pressed="false"><i class="fa-solid fa-baseball"></i> Gorras</button>
+                        <button type="button" class="chip" data-filtro="mochilas" aria-pressed="false"><i class="fa-solid fa-bag-shopping"></i> Mochilas</button>
+                        <button type="button" class="chip" data-filtro="lentes" aria-pressed="false"><i class="fa-solid fa-glasses"></i> Lentes</button>
+                    </div>
+                </div>
+
+                <div class="filtro-bloque">
+                    <h3>Color</h3>
+                    <div class="swatches" id="filtro-colores" role="group" aria-label="Color">
+                        <button type="button" class="swatch activo" data-color="todos" title="Todos" aria-pressed="true"><span class="swatch-todos">Todos</span></button>
+                        <button type="button" class="swatch" data-color="negro" title="Negro" style="--sw:#1a1a1a" aria-pressed="false"></button>
+                        <button type="button" class="swatch" data-color="blanco" title="Blanco" style="--sw:#f5f5f5" aria-pressed="false"></button>
+                        <button type="button" class="swatch" data-color="azul" title="Azul" style="--sw:#2c4a7c" aria-pressed="false"></button>
+                        <button type="button" class="swatch" data-color="beige" title="Beige" style="--sw:#c4a882" aria-pressed="false"></button>
+                        <button type="button" class="swatch" data-color="verde" title="Verde" style="--sw:#3d6b4f" aria-pressed="false"></button>
+                        <button type="button" class="swatch" data-color="rojo" title="Rojo" style="--sw:#b33a3a" aria-pressed="false"></button>
+                        <button type="button" class="swatch" data-color="amarillo" title="Amarillo" style="--sw:#d4a017" aria-pressed="false"></button>
+                    </div>
+                </div>
+
+                <div class="filtro-bloque">
+                    <h3>Talla</h3>
+                    <div class="chips-wrap" id="filtro-tallas" role="group" aria-label="Talla">
+                        <button type="button" class="chip-talla-filtro activo" data-talla="todas" aria-pressed="true">Todas</button>
+                        <button type="button" class="chip-talla-filtro" data-talla="Única" aria-pressed="false">Única</button>
+                    </div>
+                </div>
+
+                <div class="filtro-bloque">
+                    <h3>Precio</h3>
+                    <div class="precio-rango">
+                        <div class="precio-inputs">
+                            <label>Mín <input type="number" id="precio-min" min="0" max="200" value="0" step="0.01"></label>
+                            <label>Máx <input type="number" id="precio-max" min="0" max="200" value="200" step="0.01"></label>
+                        </div>
+                        <input type="range" id="filtro-precio" min="0" max="200" value="200" step="0.01">
+                        <span id="precio-label">Hasta S/ 200</span>
+                    </div>
+                </div>
+
+                <div class="filtro-bloque">
+                    <h3>Ordenar por</h3>
+                    <select id="filtro-orden">
+                        <option value="default">Relevancia</option>
+                        <option value="precio-asc">Precio: menor a mayor</option>
+                        <option value="precio-desc">Precio: mayor a menor</option>
+                        <option value="nombre">Nombre A–Z</option>
+                    </select>
+                </div>
+            </aside>
+
+            <div class="tienda-contenido">
+                <div class="tienda-toolbar">
+                    <span class="contador-resultados" id="contador-resultados"></span>
+                    <div class="filtros-activos" id="filtros-activos"></div>
+                </div>
+                <div class="catalogo" id="catalogo-dinamico"></div>
             </div>
         </div>
-
-        <div class="catalogo">
-            <section class="categoria-bloque" id="gorras" data-categoria="gorras">
-                <div class="contenedor">
-                    <h2><i class="fa-solid fa-baseball"></i> Gorras</h2>
-                    <p>Visera curva y ajuste regulable.</p>
-                    <div class="rejilla-productos">
-                        <article class="producto">
-                            <figure><img src="imagenes/Gorra.jpeg" alt="Gorra urbana" loading="lazy"><span class="etiqueta">Más pedida</span></figure>
-                            <div class="producto-info">
-                                <h3>Gorra urbana</h3>
-                                <p>Azul con bordados detallados.</p>
-                                <p class="precio">S/ 39.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/gorra-camel.jpg" alt="Gorra Camel" loading="lazy"></figure>
-                            <div class="producto-info">
-                                <h3>Gorra Camel</h3>
-                                <p>Visera curva en tono camel con logo bordado.</p>
-                                <p class="precio">S/ 34.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/gorra-azul-marino.jpg" alt="Gorra Azul Marino" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
-                            <div class="producto-info">
-                                <h3>Gorra Azul Marino</h3>
-                                <p>Azul marino con panel de malla.</p>
-                                <p class="precio">S/ 34.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/gorra-blanca.jpg" alt="Gorra Blanca" loading="lazy"></figure>
-                            <div class="producto-info">
-                                <h3>Gorra Blanca</h3>
-                                <p>Blanca con detalle negro en la visera.</p>
-                                <p class="precio">S/ 36.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section class="categoria-bloque" id="mochilas" data-categoria="mochilas">
-                <div class="contenedor">
-                    <h2><i class="fa-solid fa-bag-shopping"></i> Mochilas</h2>
-                    <p>Espacio para el día entero.</p>
-                    <div class="rejilla-productos">
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/mochila-negra-clasica.jpg" alt="Mochila Negra Clásica" loading="lazy"><span class="etiqueta">Más pedida</span></figure>
-                            <div class="producto-info">
-                                <h3>Mochila Negra Clásica</h3>
-                                <p>Aspecto de cuero con correas y hebillas.</p>
-                                <p class="precio">S/ 109.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/mochila-negra-lima.jpg" alt="Mochila Negra Lima" loading="lazy"></figure>
-                            <div class="producto-info">
-                                <h3>Mochila Negra Lima</h3>
-                                <p>Deportiva, con cierres verde lima y bolsillo lateral.</p>
-                                <p class="precio">S/ 94.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/mochila-durazno.jpg" alt="Mochila Durazno" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
-                            <div class="producto-info">
-                                <h3>Mochila Durazno</h3>
-                                <p>Acolchada, ligera y con bolsillo frontal.</p>
-                                <p class="precio">S/ 104.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/mochila-verde-oliva.jpg" alt="Mochila Verde Oliva" loading="lazy"></figure>
-                            <div class="producto-info">
-                                <h3>Mochila Verde Oliva</h3>
-                                <p>Varios compartimentos para el día entero.</p>
-                                <p class="precio">S/ 99.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section class="categoria-bloque" id="lentes" data-categoria="lentes">
-                <div class="contenedor">
-                    <h2><i class="fa-solid fa-glasses"></i> Lentes</h2>
-                    <p>Protección y actitud bajo el sol.</p>
-                    <div class="rejilla-productos">
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/lentes-clasicos-negros.jpg" alt="Lentes Clásicos Negros" loading="lazy"></figure>
-                            <div class="producto-info">
-                                <h3>Lentes Clásicos Negros</h3>
-                                <p>Montura gruesa y lente oscuro.</p>
-                                <p class="precio">S/ 34.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/lentes-aviador-negros.jpg" alt="Lentes Aviador Negros" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
-                            <div class="producto-info">
-                                <h3>Lentes Aviador Negros</h3>
-                                <p>Montura cuadrada con doble puente.</p>
-                                <p class="precio">S/ 39.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/lentes-aviador-amarillos.jpg" alt="Lentes Aviador Amarillos" loading="lazy"></figure>
-                            <div class="producto-info">
-                                <h3>Lentes Aviador Amarillos</h3>
-                                <p>El mismo diseño con lente amarillo.</p>
-                                <p class="precio">S/ 36.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                        <article class="producto">
-                            <figure><img src="imagenes/productos/lentes-carey-verdes.jpg" alt="Lentes Carey Verdes" loading="lazy"></figure>
-                            <div class="producto-info">
-                                <h3>Lentes Carey Verdes</h3>
-                                <p>Montura carey con lente verde.</p>
-                                <p class="precio">S/ 29.90</p>
-                            </div>
-                            <a href="index.html#contacto" class="boton">Consultar</a>
-                        </article>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <section class="seccion seccion-oscura">
-            <div class="contenedor">
-                <h2 class="titulo-seccion">Precios de un vistazo</h2>
-                <div class="tabla-caja" style="color:var(--tinta)">
-                    <table>
-                        <caption>Accesorios Urban Vibe por categoría</caption>
-                        <thead><tr><th scope="col">Categoría</th><th scope="col">Modelos</th><th scope="col">Desde</th><th scope="col">Hasta</th></tr></thead>
-                        <tbody>
-                            <tr><th scope="row">Gorras</th><td>4</td><td>S/ 34.90</td><td>S/ 39.90</td></tr>
-                            <tr><th scope="row">Mochilas</th><td>4</td><td>S/ 94.90</td><td>S/ 109.90</td></tr>
-                            <tr><th scope="row">Lentes</th><td>4</td><td>S/ 29.90</td><td>S/ 39.90</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="pie">
@@ -226,7 +136,6 @@
                 </div>
                 <div>
                     <h3>Síguenos</h3>
-                    <!-- ÍCONOS dentro de enlaces (Font Awesome) -->
                     <div class="redes">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -238,30 +147,64 @@
         </div>
     </footer>
 
-    <script>
-        /* Filtro de categorías: muestra solo la categoría elegida (sin recargar la página) */
-        (function () {
-            var botones = document.querySelectorAll('.chip');
-            var bloques = document.querySelectorAll('.categoria-bloque');
-            function filtrar(cual) {
-                var existe = cual === 'todas' || document.getElementById(cual);
-                if (!existe) { cual = 'todas'; }
-                bloques.forEach(function (b) { b.hidden = !(cual === 'todas' || b.dataset.categoria === cual); });
-                botones.forEach(function (c) {
-                    var on = c.dataset.filtro === cual;
-                    c.classList.toggle('activo', on);
-                    c.setAttribute('aria-pressed', on);
-                });
-            }
-            botones.forEach(function (c) {
-                c.addEventListener('click', function () {
-                    filtrar(c.dataset.filtro);
-                    history.replaceState(null, '', c.dataset.filtro === 'todas' ? location.pathname : '#' + c.dataset.filtro);
-                });
-            });
-            filtrar(location.hash.replace('#', '') || 'todas');
-            window.addEventListener('hashchange', function () { filtrar(location.hash.replace('#', '') || 'todas'); });
-        })();
-    </script>
+    <!-- Modal producto -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="modal" id="modal">
+            <button type="button" class="modal-cerrar" id="modal-cerrar" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-cuerpo">
+                <img id="modal-img" src="" alt="">
+                <div class="modal-info">
+                    <h2 id="modal-titulo">Producto</h2>
+                    <p id="modal-desc"></p>
+                    <p class="precio" id="modal-precio"></p>
+                    <p style="font-size:.8rem;font-weight:700;margin:0 0 .3rem">Elige talla:</p>
+                    <div class="modal-tallas" id="modal-tallas"></div>
+                    <div class="modal-acciones">
+                        <button type="button" class="boton" id="modal-agregar"><i class="fa-solid fa-cart-plus"></i> Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Favoritos drawer -->
+    <div class="fav-overlay" id="fav-overlay"></div>
+    <aside class="fav-drawer" id="fav-drawer" aria-label="Tus favoritos">
+        <div class="fav-header">
+            <h2><i class="fa-solid fa-heart"></i> Tus favoritos</h2>
+            <button type="button" class="fav-cerrar" id="fav-cerrar" aria-label="Cerrar favoritos"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="fav-body">
+            <p class="fav-vacio" id="fav-vacio">Aún no tienes favoritos.<br>Toca el corazón en un producto para guardarlo.</p>
+            <ul class="fav-lista" id="fav-lista"></ul>
+        </div>
+        <div class="fav-footer">
+            <button type="button" class="boton boton-oscuro" id="fav-vaciar">Vaciar favoritos</button>
+        </div>
+    </aside>
+
+    <!-- Carrito drawer -->
+    <div class="carrito-overlay" id="carrito-overlay"></div>
+    <aside class="carrito-drawer" id="carrito-drawer" aria-label="Carrito de compras">
+        <div class="carrito-header">
+            <h2><i class="fa-solid fa-cart-shopping"></i> Tu carrito</h2>
+            <button type="button" class="carrito-cerrar" id="carrito-cerrar" aria-label="Cerrar carrito"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="carrito-body">
+            <p class="carrito-vacio" id="carrito-vacio">Tu carrito está vacío.</p>
+            <ul class="carrito-lista" id="carrito-lista"></ul>
+        </div>
+        <div class="carrito-footer">
+            <div class="carrito-total"><span>Total</span><span id="carrito-total">S/ 0.00</span></div>
+            <div class="carrito-footer-acciones">
+                <button type="button" class="boton boton-oscuro" id="carrito-vaciar">Vaciar</button>
+                <button type="button" class="boton" id="carrito-comprar"><i class="fa-solid fa-check"></i> Comprar</button>
+            </div>
+        </div>
+    </aside>
+
+    <script src="js/productos.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
