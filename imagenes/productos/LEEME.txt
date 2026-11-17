@@ -1,0 +1,35 @@
+FOTOS DE PRODUCTOS
+==================
+Todas las fotos de esta carpeta son de 600 x 600 px, con fondo blanco y sombra suave,
+para que las tarjetas del catalogo se vean parejas. Las 3 fotos originales del primer
+avance (Camiseta, Polera y Gorra) estan en la carpeta imagenes/.
+
+Para cambiar una foto: guarda la nueva con el MISMO nombre en esta carpeta
+y recarga la pagina (Ctrl + F5). Lo ideal es que sea cuadrada y con fondo blanco.
+
+Archivos actuales:
+  camiseta-blanca-grafica.jpg
+  camiseta-negra-dorada.jpg
+  camiseta-oversize-grafito.jpg
+  gorra-azul-marino.jpg
+  gorra-blanca.jpg
+  gorra-camel.jpg
+  lentes-aviador-amarillos.jpg
+  lentes-aviador-negros.jpg
+  lentes-carey-verdes.jpg
+  lentes-clasicos-negros.jpg
+  mochila-durazno.jpg
+  mochila-negra-clasica.jpg
+  mochila-negra-lima.jpg
+  mochila-verde-oliva.jpg
+  pantalon-deportivo-gris.jpg
+  pantalon-jean-azul-oscuro.jpg
+  pantalon-jean-crema.jpg
+  pantalon-jogger-negro.jpg
+  polera-grafito.jpg
+  polera-verde-bordada.jpg
+  polera-verde-cropped.jpg
+
+Fuentes: las fotos vienen de tiendas en linea. Cita la fuente en la presentacion.
+Algunas muestran logos de equipos o marcas (New York Jets, Oakland A's, New York
+Yankees, New Era, CoolPack y Doite Heritage).

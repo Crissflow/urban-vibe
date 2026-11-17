@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Camisetas y poleras urbanas de Urban Vibe.">
+    <title>Ropa urbana | Urban Vibe</title>
+
+    <!-- FUENTES: Google Fonts (Anton para títulos, Manrope para textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ÍCONOS: Font Awesome desde cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Hoja de estilos propia -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="contenedor barra">
+            <a href="index.html" class="logo">Urban<span>Vibe</span></a>
+            <!-- Menú móvil sin JavaScript: checkbox + label -->
+            <input type="checkbox" id="menu-check" class="menu-check">
+            <label for="menu-check" class="menu-boton" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></label>
+            <nav aria-label="Navegación principal">
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ropa-urbana.html" aria-current="page">Ropa urbana</a></li>
+                    <li><a href="accesorios.html">Accesorios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cabecera-pagina">
+            <div class="contenedor">
+                <nav class="migas" aria-label="Ruta"><a href="index.html">Inicio</a><span>/</span><span>Ropa urbana</span></nav>
+                <h1>Ropa urbana</h1>
+                <p>Prendas cómodas para expresar tu propio estilo. Elige una categoría para ver sus modelos.</p>
+            </div>
+        </section>
+
+        <div class="filtros">
+            <div class="contenedor filtros-lista" role="group" aria-label="Filtrar por categoría">
+                <button type="button" class="chip activo" data-filtro="todas" aria-pressed="true">Todo el atuendo</button>
+                <button type="button" class="chip" data-filtro="camisetas" aria-pressed="false"><i class="fa-solid fa-shirt"></i> Camisetas</button>
+                <button type="button" class="chip" data-filtro="poleras" aria-pressed="false"><i class="fa-solid fa-layer-group"></i> Poleras</button>
+                <button type="button" class="chip" data-filtro="pantalones" aria-pressed="false"><i class="fa-solid fa-person-walking"></i> Pantalones</button>
+            </div>
+        </div>
+
+        <div class="catalogo">
+            <section class="categoria-bloque" id="camisetas" data-categoria="camisetas">
+                <div class="contenedor">
+                    <h2><i class="fa-solid fa-shirt"></i> Camisetas</h2>
+                    <p>Básicas y de estampado, para todos los días.</p>
+                    <div class="rejilla-productos">
+                        <article class="producto">
+                            <figure><img src="imagenes/Camiseta.jpeg" alt="Camiseta básica" loading="lazy"><span class="etiqueta">Más pedida</span></figure>
+                            <div class="producto-info">
+                                <h3>Camiseta básica</h3>
+                                <p>Negra con estampado rojo en la espalda.</p>
+                                <p class="precio">S/ 49.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/camiseta-blanca-grafica.jpg" alt="Camiseta Blanca" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Camiseta Blanca</h3>
+                                <p>Corte amplio con estampado de letras en la espalda.</p>
+                                <p class="precio">S/ 44.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/camiseta-negra-dorada.jpg" alt="Camiseta Negra Dorada" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
+                            <div class="producto-info">
+                                <h3>Camiseta Negra Dorada</h3>
+                                <p>Oversize negra con estampado dorado al frente.</p>
+                                <p class="precio">S/ 46.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/camiseta-oversize-grafito.jpg" alt="Camiseta Oversize Grafito" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Camiseta Oversize Grafito</h3>
+                                <p>Tono grafito con pequeño estampado en el pecho.</p>
+                                <p class="precio">S/ 46.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="categoria-bloque" id="poleras" data-categoria="poleras">
+                <div class="contenedor">
+                    <h2><i class="fa-solid fa-layer-group"></i> Poleras</h2>
+                    <p>Capuchas y cierres para las noches frescas.</p>
+                    <div class="rejilla-productos">
+                        <article class="producto">
+                            <figure><img src="imagenes/Polera.jpeg" alt="Polera oversize" loading="lazy"><span class="etiqueta">Más pedida</span></figure>
+                            <div class="producto-info">
+                                <h3>Polera oversize</h3>
+                                <p>Caída holgada, negra y versátil.</p>
+                                <p class="precio">S/ 89.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/polera-grafito.jpg" alt="Polera Grafito" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Polera Grafito</h3>
+                                <p>Capucha amplia y bolsillo canguro en tono grafito.</p>
+                                <p class="precio">S/ 84.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/polera-verde-cropped.jpg" alt="Polera Verde Cropped" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
+                            <div class="producto-info">
+                                <h3>Polera Verde Cropped</h3>
+                                <p>Corte corto con cierre frontal y capucha.</p>
+                                <p class="precio">S/ 92.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/polera-verde-bordada.jpg" alt="Polera Verde Bordada" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Polera Verde Bordada</h3>
+                                <p>Verde bosque con bordado en el pecho.</p>
+                                <p class="precio">S/ 86.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="categoria-bloque" id="pantalones" data-categoria="pantalones">
+                <div class="contenedor">
+                    <h2><i class="fa-solid fa-person-walking"></i> Pantalones</h2>
+                    <p>Joggers y jeans para todos los días.</p>
+                    <div class="rejilla-productos">
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/pantalon-jogger-negro.jpg" alt="Jogger Negro" loading="lazy"><span class="etiqueta">Más pedido</span></figure>
+                            <div class="producto-info">
+                                <h3>Jogger Negro</h3>
+                                <p>Cintura elástica, cordón y puños ajustados.</p>
+                                <p class="precio">S/ 79.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/pantalon-deportivo-gris.jpg" alt="Pantalón Deportivo Gris" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Pantalón Deportivo Gris</h3>
+                                <p>Gris jaspeado de pierna recta y cordón.</p>
+                                <p class="precio">S/ 74.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/pantalon-jean-crema.jpg" alt="Jean Crema" loading="lazy"></figure>
+                            <div class="producto-info">
+                                <h3>Jean Crema</h3>
+                                <p>Corte recto en tono crema con cinco bolsillos.</p>
+                                <p class="precio">S/ 94.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                        <article class="producto">
+                            <figure><img src="imagenes/productos/pantalon-jean-azul-oscuro.jpg" alt="Jean Azul Oscuro" loading="lazy"><span class="etiqueta">Nuevo</span></figure>
+                            <div class="producto-info">
+                                <h3>Jean Azul Oscuro</h3>
+                                <p>Denim oscuro con efecto desgastado.</p>
+                                <p class="precio">S/ 94.90</p>
+                            </div>
+                            <a href="index.html#contacto" class="boton">Consultar</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="seccion seccion-oscura">
+            <div class="contenedor">
+                <h2 class="titulo-seccion">Precios de un vistazo</h2>
+                <div class="tabla-caja" style="color:var(--tinta)">
+                    <table>
+                        <caption>Atuendos Urban Vibe por categoría</caption>
+                        <thead><tr><th scope="col">Categoría</th><th scope="col">Modelos</th><th scope="col">Desde</th><th scope="col">Hasta</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Camisetas</th><td>4</td><td>S/ 44.90</td><td>S/ 49.90</td></tr>
+                            <tr><th scope="row">Poleras</th><td>4</td><td>S/ 84.90</td><td>S/ 92.90</td></tr>
+                            <tr><th scope="row">Pantalones</th><td>4</td><td>S/ 74.90</td><td>S/ 94.90</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <div class="pie-grid">
+                <div>
+                    <h3>Urban<span style="color:var(--oro)">Vibe</span></h3>
+                    <p>Ropa y accesorios urbanos para expresar tu propio estilo.</p>
+                </div>
+                <div>
+                    <h3>Navega</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="ropa-urbana.html">Ropa urbana</a></li>
+                        <li><a href="accesorios.html">Accesorios</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Síguenos</h3>
+                    <!-- ÍCONOS dentro de enlaces (Font Awesome) -->
+                    <div class="redes">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="derechos">&copy; 2026 Urban Vibe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        /* Filtro de categorías: muestra solo la categoría elegida (sin recargar la página) */
+        (function () {
+            var botones = document.querySelectorAll('.chip');
+            var bloques = document.querySelectorAll('.categoria-bloque');
+            function filtrar(cual) {
+                var existe = cual === 'todas' || document.getElementById(cual);
+                if (!existe) { cual = 'todas'; }
+                bloques.forEach(function (b) { b.hidden = !(cual === 'todas' || b.dataset.categoria === cual); });
+                botones.forEach(function (c) {
+                    var on = c.dataset.filtro === cual;
+                    c.classList.toggle('activo', on);
+                    c.setAttribute('aria-pressed', on);
+                });
+            }
+            botones.forEach(function (c) {
+                c.addEventListener('click', function () {
+                    filtrar(c.dataset.filtro);
+                    history.replaceState(null, '', c.dataset.filtro === 'todas' ? location.pathname : '#' + c.dataset.filtro);
+                });
+            });
+            filtrar(location.hash.replace('#', '') || 'todas');
+            window.addEventListener('hashchange', function () { filtrar(location.hash.replace('#', '') || 'todas'); });
+        })();
+    </script>
+</body>
+</html>
